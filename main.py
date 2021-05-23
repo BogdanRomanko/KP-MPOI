@@ -75,7 +75,7 @@ def user_choise(text, message_chat_id):
     elif text == 'Получить значения при тепературе ...' or text == 'Получить значение на определённой температуре' or text == 'Получить значение на отрезке температуры' or text == 'Получить все значения':
         temp_values(text, message_chat_id)
     
-    elif re.match(r'(T=\d+[.]\d+)', text) or re.match(r'(T\d+[.]\d+-\d+[.]\d+)', text):
+    elif re.match(r'([T, Т]=\d+[.]\d+)', text) or re.match(r'([T, Т]\d+[.]\d+-\d+[.]\d+)', text):
         temp_values(text, message_chat_id)
     
     elif text == 'Получить параметры датчиков температуры' or text == 'Получить параметры датчика температуры №1' or text == 'Получить параметры датчика температуры №2' or text == 'Получить параметры датчика температуры №3' or text == 'Получить параметры датчика температуры №4':
@@ -113,23 +113,32 @@ def temp_values(text, message_chat_id):
         bot.send_message(message_chat_id, "Введите необходимую температуру в формате \"T=_значение_\", например: T=288.89")
     
     elif text == 'Получить значение на отрезке температуры':
-        bot.send_message(message_chat_id, "Введите необходимую температуру в формате \"T_значение_-_значение_\", например: T288.5-310.94")
+        bot.send_message(message_chat_id, "Введите необходимую температуру в формате \"T_значение_-_значение_\", например: T288.5-292.94")
     
-    elif re.match(r'(T=\d+[.]\d+)', text):
+    elif re.match(r'([T, Т]=\d+[.]\d+)', text):
         tmp = float(text[2:])
         if tmp > 328 or tmp < 288:
             bot.send_message(message_chat_id, "Неправильно выбрано значение температуры")
         else:
+            bot.send_message(message_chat_id, "Подождите, пока произойдут расчёты")
             bot.send_message(message_chat_id, values.get_value(tmp))
     
-    elif re.match(r'(T\d+[.]\d+-\d+[.]\d+)', text):
+    elif re.match(r'([T, Т]\d+[.]\d+-\d+[.]\d+)', text):
         value_range = re.split(r'-', text)
         temp_min = float(value_range[0][1:])
         temp_max = float(value_range[1])
         if temp_min > 328 or temp_max > 328 or temp_min < 288 or temp_max < 288:
             bot.send_message(message_chat_id, "Неправильно выбранный диапазон температуры")
+        elif temp_max - temp_min > 10:
+            bot.send_message(message_chat_id, "Диапазон температур должен быть меньше 10 градусов в ваших же интересах")
         else:
-            bot.send_message(message_chat_id, values.get_range_values(temp_min, temp_max))
+            bot.send_message(message_chat_id, "Подождите, пока произойдут расчёты")
+            result_list = values.get_range_values(temp_min, temp_max)
+            
+            for i in range(0, len(result_list), 1):
+                    bot.send_message(message_chat_id, result_list[i])
+            
+            
     
     elif text == 'Получить все значения':
         bot.send_message(message_chat_id, "Подождите, пока произойдут расчёты")
@@ -166,13 +175,13 @@ def temp_values(text, message_chat_id):
         result_str4 = "Значения датчика №4:\n"
         for i in range(0, 1000, 1):
             if str(i) in result_list1:
-                result_str1 = result_str1 + str(result[i]) + " В\n"
+                result_str1 = result_str1 + str((i * 0.04) + 288)[0:6] + "K - " + str(result[i])[0:5] + " В\n"
             elif str(i) in result_list2:
-                result_str2 = result_str2 + str(result[i]) + " В\n"
+                result_str2 = result_str2 + str((i * 0.04) + 288 - 0.04)[0:6] + "K - " + str(result[i])[0:5] + " В\n"
             elif str(i) in result_list3:
-                result_str3 = result_str3 + str(result[i]) + " В\n"
+                result_str3 = result_str3 + str((i * 0.04) + 288 - 0.08)[0:6] + "K - " + str(result[i])[0:5] + " В\n"
             elif str(i) in result_list4:
-                result_str4 = result_str4 + str(result[i]) + " В\n"
+                result_str4 = result_str4 + str((i * 0.04) + 288 - 0.12)[0:6] + "K - " + str(result[i])[0:5] + " В\n"
                 
             if result_str4.count("\n") > 100:
                 bot.send_message(message_chat_id, result_str1)
