@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.34"
+    ComputedModelVersion    "1.35"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -58,7 +58,7 @@ Model {
 	LoadSaveID		"0"
 	Extents			[1646.0, 852.0]
 	ZoomFactor		[1.25]
-	Offset			[-196.2, -8.1999999999999886]
+	Offset			[123.00000000000007, 25.400000000000013]
       }
     }
   }
@@ -68,9 +68,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "KDFX Team"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri May 21 18:05:58 2021"
-  RTWModifiedTimeStamp	  543521154
-  ModelVersionFormat	  "1.%<AutoIncrement:34>"
+  LastModifiedDate	  "Sun May 23 21:51:56 2021"
+  RTWModifiedTimeStamp	  543707399
+  ModelVersionFormat	  "1.%<AutoIncrement:35>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -996,7 +996,7 @@ Model {
       BlockType		      Buffer
       Name		      "Buffer1"
       SID		      "85"
-      Position		      [1315, 189, 1365, 241]
+      Position		      [1245, 189, 1295, 241]
       ZOrder		      56
       N			      "4"
       TreatMby1Signals	      "One channel"
@@ -1262,18 +1262,6 @@ Model {
       Position		      [530, 509, 590, 651]
       ZOrder		      50
       BlockMirror	      on
-      LibraryVersion	      "1.2"
-      SourceBlock	      "KP/DAC 10//1"
-      SourceType	      "SubSystem"
-      ContentPreviewEnabled   off
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "DAC 10/2"
-      SID		      "86"
-      Ports		      [11, 1]
-      Position		      [1235, 144, 1295, 286]
-      ZOrder		      57
       LibraryVersion	      "1.2"
       SourceBlock	      "KP/DAC 10//1"
       SourceType	      "SubSystem"
@@ -1761,25 +1749,25 @@ Model {
       Name		      "coded"
       SID		      "88"
       Ports		      [1]
-      Position		      [1385, 199, 1415, 231]
+      Position		      [1315, 199, 1345, 231]
       ZOrder		      55
       ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
       "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
       "ources','WiredSimulink',true,'DataLoggingVariableName','ScopeData2'),extmgr.Configuration('Visuals','Time Domain"
-      "',true,'SerializedDisplays',{struct('MinYLimReal','-96.25','MaxYLimReal','866.25','YLabelReal','','MinYLimMag','"
-      "0.00000','MaxYLimMag','866.25','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColo"
-      "r',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.066666666"
-      "6666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.83137254"
-      "9019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.6"
-      "50980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',4,"
-      "'LineNames',{{'Buffer1:1','Buffer1:2','Buffer1:3','Buffer1:4'}},'ShowContent',true,'Placement',1)},'DisplayPrope"
-      "rtyDefaults',struct('MinYLimReal','-96.25','MaxYLimReal','866.25','YLabelReal','','MinYLimMag','0.00000','MaxYLi"
-      "mMag','866.25','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'Axes"
-      "TickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.0745098039215686 0.6235294117"
-      "64706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.3921"
-      "56862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863])"
-      "),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration('Tools','Measurements',true,'Version"
-      "','2016a')),'Version','2016a','Position',[1 41 1680 934])"
+      "',true,'SerializedDisplays',{struct('MinYLimReal','-0.125','MaxYLimReal','1.125','YLabelReal','','MinYLimMag','0"
+      ".00000','MaxYLimMag','1.125','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor'"
+      ",[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.06666666666"
+      "66667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.8313725490"
+      "19608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650"
+      "980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',4,'L"
+      "ineNames',{{'Buffer1:1','Buffer1:2','Buffer1:3','Buffer1:4'}},'ShowContent',true,'Placement',1)},'DisplayPropert"
+      "yDefaults',struct('MinYLimReal','-0.125','MaxYLimReal','1.125','YLabelReal','','MinYLimMag','0.00000','MaxYLimMa"
+      "g','1.125','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTick"
+      "Color',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.0745098039215686 0.62352941176470"
+      "6 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.39215686"
+      "2745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863])),ex"
+      "tmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration('Tools','Measurements',true,'Version','2"
+      "016a')),'Version','2016a','Position',[1 41 1680 934])"
     }
     Block {
       BlockType		      Scope
@@ -2638,16 +2626,8 @@ Model {
       DstPort		      1
     }
     Line {
-      ZOrder		      223
+      ZOrder		      351
       SrcBlock		      "Selector2"
-      SrcPort		      1
-      Points		      [5, 0]
-      DstBlock		      "DAC 10/2"
-      DstPort		      11
-    }
-    Line {
-      ZOrder		      224
-      SrcBlock		      "DAC 10/2"
       SrcPort		      1
       DstBlock		      "Buffer1"
       DstPort		      1
