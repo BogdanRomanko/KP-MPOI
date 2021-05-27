@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.71"
+    ComputedModelVersion    "1.74"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -58,7 +58,7 @@ Model {
 	LoadSaveID		"0"
 	Extents			[1646.0, 852.0]
 	ZoomFactor		[1.0]
-	Offset			[-233.36666666666542, 65.6666666666664]
+	Offset			[-219.31644004944326, 3.1310259579728381]
       }
     }
   }
@@ -68,9 +68,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "KDFX Team"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat May 22 00:28:35 2021"
-  RTWModifiedTimeStamp	  543544112
-  ModelVersionFormat	  "1.%<AutoIncrement:71>"
+  LastModifiedDate	  "Thu May 27 22:56:25 2021"
+  RTWModifiedTimeStamp	  544056872
+  ModelVersionFormat	  "1.%<AutoIncrement:74>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -820,6 +820,12 @@ Model {
       PreserveConstantTs      off
     }
     Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
       BlockType		      DiscretePulseGenerator
       PulseType		      "Sample based"
       TimeSource	      "Use simulation time"
@@ -829,6 +835,21 @@ Model {
       PhaseDelay	      "0"
       SampleTime	      "1"
       VectorParams1D	      on
+    }
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParamMin		      "[]"
+      ParamMax		      "[]"
+      ParamDataTypeStr	      "Inherit: Same as input"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
     }
     Block {
       BlockType		      Inport
@@ -943,6 +964,22 @@ Model {
       IsWebBlock	      off
     }
     Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      AccumDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      ToFile
       Filename		      "untitled.mat"
       MatrixName	      "ans"
@@ -987,7 +1024,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "54"
+    SIDHighWatermark	    "56"
     Block {
       BlockType		      Reference
       Name		      "ADC 10/1"
@@ -1068,7 +1105,7 @@ Model {
 	    Type		    "edit"
 	    Name		    "P"
 	    Prompt		    "Error probability:"
-	    Value		    "0.000000"
+	    Value		    "0.06"
 	  }
 	  Object {
 	    $ObjectID		    22
@@ -1306,16 +1343,658 @@ Model {
       OutputFrames	      off
     }
     Block {
-      BlockType		      Reference
+      BlockType		      SubSystem
       Name		      "DAC 10/1"
       SID		      "49"
       Ports		      [11, 1]
       Position		      [1115, 324, 1175, 466]
       ZOrder		      20
-      LibraryVersion	      "1.2"
-      SourceBlock	      "KP/DAC 10//1"
-      SourceType	      "SubSystem"
-      ContentPreviewEnabled   off
+      AncestorBlock	      "KP/DAC 10//1"
+      LibraryVersion	      "*1.2"
+      RequestExecContextInheritance off
+      Variant		      off
+      System {
+	Name			"DAC 10/1"
+	Location		[-8, -8, 1688, 1018]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"113"
+	SIDHighWatermark	"264"
+	SIDPrevWatermark	"264"
+	Block {
+	  BlockType		  Inport
+	  Name			  "A1"
+	  SID			  "49:253"
+	  Position		  [25, 33, 55, 47]
+	  ZOrder		  99
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "A2"
+	  SID			  "49:254"
+	  Position		  [25, 98, 55, 112]
+	  ZOrder		  100
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "A3"
+	  SID			  "49:255"
+	  Position		  [25, 158, 55, 172]
+	  ZOrder		  101
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "A4"
+	  SID			  "49:256"
+	  Position		  [20, 218, 50, 232]
+	  ZOrder		  102
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "A5"
+	  SID			  "49:257"
+	  Position		  [25, 278, 55, 292]
+	  ZOrder		  103
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "A6"
+	  SID			  "49:258"
+	  Position		  [25, 338, 55, 352]
+	  ZOrder		  104
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "A7"
+	  SID			  "49:259"
+	  Position		  [25, 393, 55, 407]
+	  ZOrder		  105
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "A8"
+	  SID			  "49:260"
+	  Position		  [25, 448, 55, 462]
+	  ZOrder		  106
+	  Port			  "8"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "A9"
+	  SID			  "49:261"
+	  Position		  [25, 503, 55, 517]
+	  ZOrder		  107
+	  Port			  "9"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "A10"
+	  SID			  "49:262"
+	  Position		  [25, 558, 55, 572]
+	  ZOrder		  108
+	  Port			  "10"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Cont"
+	  SID			  "49:263"
+	  Position		  [35, 718, 65, 732]
+	  ZOrder		  109
+	  Port			  "11"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux"
+	  SID			  "49:229"
+	  Ports			  [1, 10]
+	  Position		  [70, 640, 160, 650]
+	  ZOrder		  87
+	  BlockRotation		  270
+	  BackgroundColor	  "black"
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Outputs		  "10"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "R0"
+	  SID			  "49:230"
+	  Position		  [410, 25, 440, 55]
+	  ZOrder		  86
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "R1"
+	  SID			  "49:231"
+	  Position		  [410, 90, 440, 120]
+	  ZOrder		  85
+	  Gain			  "2"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "R2"
+	  SID			  "49:232"
+	  Position		  [410, 150, 440, 180]
+	  ZOrder		  84
+	  Gain			  "4"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "R3"
+	  SID			  "49:233"
+	  Position		  [410, 210, 440, 240]
+	  ZOrder		  83
+	  Gain			  "8"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "R4"
+	  SID			  "49:234"
+	  Position		  [410, 270, 440, 300]
+	  ZOrder		  82
+	  Gain			  "16"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "R5"
+	  SID			  "49:235"
+	  Position		  [410, 330, 440, 360]
+	  ZOrder		  81
+	  Gain			  "32"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "R6"
+	  SID			  "49:236"
+	  Position		  [410, 385, 440, 415]
+	  ZOrder		  80
+	  Gain			  "64"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "R7"
+	  SID			  "49:237"
+	  Position		  [410, 439, 445, 471]
+	  ZOrder		  79
+	  Gain			  "128"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "R8"
+	  SID			  "49:238"
+	  Position		  [410, 493, 445, 527]
+	  ZOrder		  78
+	  Gain			  "256"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "R9"
+	  SID			  "49:239"
+	  Position		  [410, 548, 445, 582]
+	  ZOrder		  77
+	  Gain			  "512"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "49:240"
+	  Ports			  [2, 1]
+	  Position		  [285, 22, 320, 58]
+	  ZOrder		  76
+	  ShowName		  off
+	  Inputs		  "|++"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum1"
+	  SID			  "49:241"
+	  Ports			  [2, 1]
+	  Position		  [285, 87, 320, 123]
+	  ZOrder		  75
+	  ShowName		  off
+	  Inputs		  "|++"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum10"
+	  SID			  "49:242"
+	  Ports			  [2, 1]
+	  Position		  [285, 547, 320, 583]
+	  ZOrder		  74
+	  ShowName		  off
+	  Inputs		  "|++"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum2"
+	  SID			  "49:243"
+	  Ports			  [2, 1]
+	  Position		  [285, 147, 320, 183]
+	  ZOrder		  73
+	  ShowName		  off
+	  Inputs		  "|++"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum3"
+	  SID			  "49:244"
+	  Ports			  [2, 1]
+	  Position		  [285, 207, 320, 243]
+	  ZOrder		  72
+	  ShowName		  off
+	  Inputs		  "|++"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum4"
+	  SID			  "49:245"
+	  Ports			  [2, 1]
+	  Position		  [285, 267, 320, 303]
+	  ZOrder		  71
+	  ShowName		  off
+	  Inputs		  "|++"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum5"
+	  SID			  "49:246"
+	  Ports			  [2, 1]
+	  Position		  [285, 327, 320, 363]
+	  ZOrder		  70
+	  ShowName		  off
+	  Inputs		  "|++"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum6"
+	  SID			  "49:247"
+	  Ports			  [10, 1]
+	  Position		  [565, 24, 600, 576]
+	  ZOrder		  69
+	  ShowName		  off
+	  Inputs		  "|++++++++++"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum7"
+	  SID			  "49:248"
+	  Ports			  [2, 1]
+	  Position		  [285, 382, 320, 418]
+	  ZOrder		  68
+	  ShowName		  off
+	  Inputs		  "|++"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum8"
+	  SID			  "49:249"
+	  Ports			  [2, 1]
+	  Position		  [285, 437, 320, 473]
+	  ZOrder		  67
+	  ShowName		  off
+	  Inputs		  "|++"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum9"
+	  SID			  "49:250"
+	  Ports			  [2, 1]
+	  Position		  [285, 492, 320, 528]
+	  ZOrder		  66
+	  ShowName		  off
+	  Inputs		  "|++"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  "49:264"
+	  Position		  [685, 298, 715, 312]
+	  ZOrder		  110
+	  IconDisplay		  "Port number"
+	  InitialOutput		  "0"
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Demux"
+	  SrcPort		  10
+	  Points		  [0, -585]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "Demux"
+	  SrcPort		  9
+	  Points		  [0, -520]
+	  DstBlock		  "Sum1"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  3
+	  SrcBlock		  "Demux"
+	  SrcPort		  8
+	  Points		  [0, -460]
+	  DstBlock		  "Sum2"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Demux"
+	  SrcPort		  7
+	  Points		  [0, -400]
+	  DstBlock		  "Sum3"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "Demux"
+	  SrcPort		  6
+	  Points		  [0, -340]
+	  DstBlock		  "Sum4"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  6
+	  SrcBlock		  "Demux"
+	  SrcPort		  5
+	  Points		  [0, -280]
+	  DstBlock		  "Sum5"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  7
+	  SrcBlock		  "Demux"
+	  SrcPort		  4
+	  Points		  [0, -225]
+	  DstBlock		  "Sum7"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  8
+	  SrcBlock		  "Demux"
+	  SrcPort		  3
+	  Points		  [0, -170]
+	  DstBlock		  "Sum8"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  9
+	  SrcBlock		  "Demux"
+	  SrcPort		  2
+	  Points		  [0, -115]
+	  DstBlock		  "Sum9"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  10
+	  SrcBlock		  "Demux"
+	  SrcPort		  1
+	  Points		  [0, -60]
+	  DstBlock		  "Sum10"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  11
+	  SrcBlock		  "Cont"
+	  SrcPort		  1
+	  Points		  [45, 0]
+	  DstBlock		  "Demux"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  12
+	  SrcBlock		  "R0"
+	  SrcPort		  1
+	  Points		  [105, 0]
+	  DstBlock		  "Sum6"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  13
+	  SrcBlock		  "A10"
+	  SrcPort		  1
+	  DstBlock		  "Sum10"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "R9"
+	  SrcPort		  1
+	  Points		  [55, 0; 0, -15]
+	  DstBlock		  "Sum6"
+	  DstPort		  10
+	}
+	Line {
+	  ZOrder		  15
+	  SrcBlock		  "Sum10"
+	  SrcPort		  1
+	  DstBlock		  "R9"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  16
+	  SrcBlock		  "A9"
+	  SrcPort		  1
+	  DstBlock		  "Sum9"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  17
+	  SrcBlock		  "R8"
+	  SrcPort		  1
+	  Points		  [55, 0; 0, -10]
+	  DstBlock		  "Sum6"
+	  DstPort		  9
+	}
+	Line {
+	  ZOrder		  18
+	  SrcBlock		  "Sum9"
+	  SrcPort		  1
+	  DstBlock		  "R8"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  19
+	  SrcBlock		  "A8"
+	  SrcPort		  1
+	  DstBlock		  "Sum8"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  20
+	  SrcBlock		  "R7"
+	  SrcPort		  1
+	  Points		  [55, 0; 0, -5]
+	  DstBlock		  "Sum6"
+	  DstPort		  8
+	}
+	Line {
+	  ZOrder		  21
+	  SrcBlock		  "Sum8"
+	  SrcPort		  1
+	  DstBlock		  "R7"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  22
+	  SrcBlock		  "A7"
+	  SrcPort		  1
+	  DstBlock		  "Sum7"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  23
+	  SrcBlock		  "R6"
+	  SrcPort		  1
+	  DstBlock		  "Sum6"
+	  DstPort		  7
+	}
+	Line {
+	  ZOrder		  24
+	  SrcBlock		  "Sum7"
+	  SrcPort		  1
+	  DstBlock		  "R6"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  25
+	  SrcBlock		  "A1"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  26
+	  SrcBlock		  "A2"
+	  SrcPort		  1
+	  DstBlock		  "Sum1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  27
+	  SrcBlock		  "A5"
+	  SrcPort		  1
+	  DstBlock		  "Sum4"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  28
+	  SrcBlock		  "A4"
+	  SrcPort		  1
+	  DstBlock		  "Sum3"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  29
+	  SrcBlock		  "A3"
+	  SrcPort		  1
+	  DstBlock		  "Sum2"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  30
+	  SrcBlock		  "A6"
+	  SrcPort		  1
+	  DstBlock		  "Sum5"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  31
+	  SrcBlock		  "Sum1"
+	  SrcPort		  1
+	  DstBlock		  "R1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  32
+	  SrcBlock		  "R4"
+	  SrcPort		  1
+	  Points		  [105, 0]
+	  DstBlock		  "Sum6"
+	  DstPort		  5
+	}
+	Line {
+	  ZOrder		  33
+	  SrcBlock		  "Sum6"
+	  SrcPort		  1
+	  Points		  [33, 0; 0, 5]
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  34
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "R0"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  35
+	  SrcBlock		  "Sum3"
+	  SrcPort		  1
+	  DstBlock		  "R3"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  36
+	  SrcBlock		  "Sum5"
+	  SrcPort		  1
+	  DstBlock		  "R5"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  37
+	  SrcBlock		  "R1"
+	  SrcPort		  1
+	  Points		  [91, 0; 0, 45]
+	  DstBlock		  "Sum6"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  38
+	  SrcBlock		  "R2"
+	  SrcPort		  1
+	  Points		  [105, 0]
+	  DstBlock		  "Sum6"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  39
+	  SrcBlock		  "R3"
+	  SrcPort		  1
+	  Points		  [105, 0]
+	  DstBlock		  "Sum6"
+	  DstPort		  4
+	}
+	Line {
+	  ZOrder		  40
+	  SrcBlock		  "Sum4"
+	  SrcPort		  1
+	  DstBlock		  "R4"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  41
+	  SrcBlock		  "Sum2"
+	  SrcPort		  1
+	  DstBlock		  "R2"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  42
+	  SrcBlock		  "R5"
+	  SrcPort		  1
+	  Points		  [105, 0]
+	  DstBlock		  "Sum6"
+	  DstPort		  6
+	}
+      }
     }
     Block {
       BlockType		      DiscretePulseGenerator
@@ -1436,7 +2115,7 @@ Model {
       "039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'"
       "Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}"
       "},'ShowContent',true,'Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration('"
-      "Tools','Measurements',true,'Version','2016a')),'Version','2016a','Location',[318 184 1379 741])"
+      "Tools','Measurements',true,'Version','2016a')),'Version','2016a','Location',[1 75 1681 1009])"
     }
     Block {
       BlockType		      Selector
@@ -1527,26 +2206,6 @@ Model {
       MatrixName	      "datchiki"
     }
     Block {
-      BlockType		      ToFile
-      Name		      "To File3"
-      SID		      "52"
-      Ports		      [1]
-      Position		      [1060, 520, 1120, 550]
-      ZOrder		      23
-      Filename		      "line.mat"
-      MatrixName	      "line"
-    }
-    Block {
-      BlockType		      ToFile
-      Name		      "To File4"
-      SID		      "53"
-      Ports		      [1]
-      Position		      [1050, 625, 1110, 655]
-      ZOrder		      24
-      Filename		      "error.mat"
-      MatrixName	      "error"
-    }
-    Block {
       BlockType		      ToWorkspace
       Name		      "To Workspace1"
       SID		      "28"
@@ -1576,6 +2235,28 @@ Model {
       Position		      [435, 315, 495, 345]
       ZOrder		      25
       VariableName	      "prebuf"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace4"
+      SID		      "55"
+      Ports		      [1]
+      Position		      [1050, 625, 1110, 655]
+      ZOrder		      26
+      VariableName	      "error"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace5"
+      SID		      "56"
+      Ports		      [1]
+      Position		      [1060, 520, 1120, 550]
+      ZOrder		      27
+      VariableName	      "line"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
     }
@@ -1621,8 +2302,8 @@ Model {
       "5098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.07450"
       "98039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}"
       "},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1)),extmgr.Configuration('Tools','Plot Navigati"
-      "on',true),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Location',[1 1"
-      "62 1681 1049],'WindowStyle','docked')"
+      "on',true,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version"
+      "','2016a','Location',[1 162 1681 1049],'WindowStyle','docked')"
     }
     Line {
       ZOrder		      135
@@ -1782,8 +2463,8 @@ Model {
       SrcPort		      1
       Points		      [15, 0]
       Branch {
-	ZOrder			189
-	DstBlock		"To File3"
+	ZOrder			228
+	DstBlock		"To Workspace5"
 	DstPort			1
       }
       Branch {
@@ -1794,11 +2475,11 @@ Model {
       }
     }
     Line {
-      ZOrder		      190
+      ZOrder		      227
       SrcBlock		      "Binary Symmetric Channel"
       SrcPort		      2
       Points		      [30, 0; 0, 85]
-      DstBlock		      "To File4"
+      DstBlock		      "To Workspace4"
       DstPort		      1
     }
     Line {
@@ -1810,6 +2491,10 @@ Model {
       DstPort		      11
     }
     Line {
+      FontName		      "Helvetica"
+      FontSize		      9
+      FontWeight	      "normal"
+      FontAngle		      "normal"
       ZOrder		      148
       SrcBlock		      "DAC 10/1"
       SrcPort		      1
