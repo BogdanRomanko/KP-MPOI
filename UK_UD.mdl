@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.35"
+    ComputedModelVersion    "1.36"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -57,8 +57,8 @@ Model {
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
 	Extents			[1646.0, 852.0]
-	ZoomFactor		[1.25]
-	Offset			[123.00000000000007, 25.400000000000013]
+	ZoomFactor		[0.8]
+	Offset			[-489.36747572815511, 21.647572815533863]
       }
     }
   }
@@ -68,9 +68,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "KDFX Team"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun May 23 21:51:56 2021"
-  RTWModifiedTimeStamp	  543707399
-  ModelVersionFormat	  "1.%<AutoIncrement:35>"
+  LastModifiedDate	  "Thu May 27 23:43:54 2021"
+  RTWModifiedTimeStamp	  544059830
+  ModelVersionFormat	  "1.%<AutoIncrement:36>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -925,7 +925,7 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "125"
+    ZoomFactor		    "80"
     ReportName		    ".rpt"
     SIDHighWatermark	    "94"
     Block {
@@ -1283,10 +1283,10 @@ Model {
     Block {
       BlockType		      Fcn
       Name		      "Fcn1"
-      SID		      "14"
-      Position		      [795, 455, 855, 485]
-      ZOrder		      -14
-      Expr		      "u(8)!=u(18)"
+      SID		      "19"
+      Position		      [795, 310, 855, 340]
+      ZOrder		      -19
+      Expr		      "u(10)!=u(20)"
     }
     Block {
       BlockType		      Fcn
@@ -1299,38 +1299,6 @@ Model {
     Block {
       BlockType		      Fcn
       Name		      "Fcn2"
-      SID		      "16"
-      Position		      [795, 530, 855, 560]
-      ZOrder		      -16
-      Expr		      "u(7)!=u(17)"
-    }
-    Block {
-      BlockType		      Fcn
-      Name		      "Fcn3"
-      SID		      "17"
-      Position		      [795, 750, 855, 780]
-      ZOrder		      -17
-      Expr		      "u(4)!=u(14)"
-    }
-    Block {
-      BlockType		      Fcn
-      Name		      "Fcn4"
-      SID		      "18"
-      Position		      [795, 825, 855, 855]
-      ZOrder		      -18
-      Expr		      "u(3)!=u(13)"
-    }
-    Block {
-      BlockType		      Fcn
-      Name		      "Fcn5"
-      SID		      "19"
-      Position		      [795, 310, 855, 340]
-      ZOrder		      -19
-      Expr		      "u(10)!=u(20)"
-    }
-    Block {
-      BlockType		      Fcn
-      Name		      "Fcn6"
       SID		      "20"
       Position		      [795, 380, 855, 410]
       ZOrder		      -20
@@ -1338,7 +1306,23 @@ Model {
     }
     Block {
       BlockType		      Fcn
-      Name		      "Fcn7"
+      Name		      "Fcn3"
+      SID		      "14"
+      Position		      [795, 455, 855, 485]
+      ZOrder		      -14
+      Expr		      "u(8)!=u(18)"
+    }
+    Block {
+      BlockType		      Fcn
+      Name		      "Fcn4"
+      SID		      "16"
+      Position		      [795, 530, 855, 560]
+      ZOrder		      -16
+      Expr		      "u(7)!=u(17)"
+    }
+    Block {
+      BlockType		      Fcn
+      Name		      "Fcn5"
       SID		      "21"
       Position		      [795, 605, 855, 635]
       ZOrder		      -21
@@ -1346,11 +1330,27 @@ Model {
     }
     Block {
       BlockType		      Fcn
-      Name		      "Fcn8"
+      Name		      "Fcn6"
       SID		      "22"
       Position		      [795, 675, 855, 705]
       ZOrder		      -22
       Expr		      "u(5)!=u(15)"
+    }
+    Block {
+      BlockType		      Fcn
+      Name		      "Fcn7"
+      SID		      "17"
+      Position		      [795, 750, 855, 780]
+      ZOrder		      -17
+      Expr		      "u(4)!=u(14)"
+    }
+    Block {
+      BlockType		      Fcn
+      Name		      "Fcn8"
+      SID		      "18"
+      Position		      [795, 825, 855, 855]
+      ZOrder		      -18
+      Expr		      "u(3)!=u(13)"
     }
     Block {
       BlockType		      Fcn
@@ -1941,7 +1941,7 @@ Model {
     }
     Line {
       ZOrder		      23
-      SrcBlock		      "Fcn2"
+      SrcBlock		      "Fcn4"
       SrcPort		      1
       DstBlock		      "Counter4"
       DstPort		      1
@@ -1962,7 +1962,7 @@ Model {
 	Points			[24, 0]
 	Branch {
 	  ZOrder		  26
-	  DstBlock		  "Fcn5"
+	  DstBlock		  "Fcn1"
 	  DstPort		  1
 	}
 	Branch {
@@ -1970,7 +1970,7 @@ Model {
 	  Points		  [0, 70]
 	  Branch {
 	    ZOrder		    28
-	    DstBlock		    "Fcn6"
+	    DstBlock		    "Fcn2"
 	    DstPort		    1
 	  }
 	  Branch {
@@ -1978,7 +1978,7 @@ Model {
 	    Points		    [0, 75]
 	    Branch {
 	      ZOrder		      30
-	      DstBlock		      "Fcn1"
+	      DstBlock		      "Fcn3"
 	      DstPort		      1
 	    }
 	    Branch {
@@ -1986,7 +1986,7 @@ Model {
 	      Points		      [0, 75]
 	      Branch {
 		ZOrder			32
-		DstBlock		"Fcn2"
+		DstBlock		"Fcn4"
 		DstPort			1
 	      }
 	      Branch {
@@ -1994,7 +1994,7 @@ Model {
 		Points			[0, 75]
 		Branch {
 		  ZOrder		  34
-		  DstBlock		  "Fcn7"
+		  DstBlock		  "Fcn5"
 		  DstPort		  1
 		}
 		Branch {
@@ -2002,7 +2002,7 @@ Model {
 		  Points		  [0, 70]
 		  Branch {
 		    ZOrder		    36
-		    DstBlock		    "Fcn8"
+		    DstBlock		    "Fcn6"
 		    DstPort		    1
 		  }
 		  Branch {
@@ -2010,7 +2010,7 @@ Model {
 		    Points		    [0, 75]
 		    Branch {
 		    ZOrder		    38
-		    DstBlock		    "Fcn3"
+		    DstBlock		    "Fcn7"
 		    DstPort		    1
 		    }
 		    Branch {
@@ -2018,7 +2018,7 @@ Model {
 		    Points		    [0, 75]
 		    Branch {
 		    ZOrder		    40
-		    DstBlock		    "Fcn4"
+		    DstBlock		    "Fcn8"
 		    DstPort		    1
 		    }
 		    Branch {
@@ -2056,21 +2056,21 @@ Model {
     }
     Line {
       ZOrder		      46
-      SrcBlock		      "Fcn1"
+      SrcBlock		      "Fcn3"
       SrcPort		      1
       DstBlock		      "Counter2"
       DstPort		      1
     }
     Line {
       ZOrder		      47
-      SrcBlock		      "Fcn5"
+      SrcBlock		      "Fcn1"
       SrcPort		      1
       DstBlock		      "Counter"
       DstPort		      1
     }
     Line {
       ZOrder		      48
-      SrcBlock		      "Fcn6"
+      SrcBlock		      "Fcn2"
       SrcPort		      1
       DstBlock		      "Counter1"
       DstPort		      1
@@ -2336,28 +2336,28 @@ Model {
     }
     Line {
       ZOrder		      92
-      SrcBlock		      "Fcn4"
+      SrcBlock		      "Fcn8"
       SrcPort		      1
       DstBlock		      "Counter7"
       DstPort		      1
     }
     Line {
       ZOrder		      93
-      SrcBlock		      "Fcn3"
+      SrcBlock		      "Fcn7"
       SrcPort		      1
       DstBlock		      "Counter6"
       DstPort		      1
     }
     Line {
       ZOrder		      94
-      SrcBlock		      "Fcn7"
+      SrcBlock		      "Fcn5"
       SrcPort		      1
       DstBlock		      "Counter3"
       DstPort		      1
     }
     Line {
       ZOrder		      95
-      SrcBlock		      "Fcn8"
+      SrcBlock		      "Fcn6"
       SrcPort		      1
       DstBlock		      "Counter5"
       DstPort		      1
@@ -2654,8 +2654,16 @@ Model {
       Branch {
 	ZOrder			349
 	Points			[0, 70]
-	DstBlock		"To File"
-	DstPort			1
+	Branch {
+	  ZOrder		  358
+	  DstBlock		  "sensors"
+	  DstPort		  1
+	}
+	Branch {
+	  ZOrder		  357
+	  DstBlock		  "To File"
+	  DstPort		  1
+	}
       }
       Branch {
 	ZOrder			348
