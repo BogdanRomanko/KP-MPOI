@@ -75,7 +75,7 @@ def user_choise(text, message_chat_id):
     elif text == 'Получить значения при тепературе ...' or text == 'Получить значение на определённой температуре' or text == 'Получить значение на отрезке температуры' or text == 'Получить все значения':
         temp_values(text, message_chat_id)
     
-    elif re.match(r'([T, Т]=\d+[.]\d+)', text) or re.match(r'([T, Т]\d+[.]\d+-\d+[.]\d+)', text):
+    elif re.match(r'([T, Т]=\d+[.]\d+)', text) or re.match(r'([T, Т]\d+[.]\d+-\d+[.]\d+)', text) or re.match(r'([T, Т]\d+-\d+)', text) or re.match(r'([T, Т]=\d+)', text):
         temp_values(text, message_chat_id)
     
     elif text == 'Получить параметры датчиков температуры' or text == 'Получить параметры датчика температуры №1' or text == 'Получить параметры датчика температуры №2' or text == 'Получить параметры датчика температуры №3' or text == 'Получить параметры датчика температуры №4':
@@ -115,7 +115,7 @@ def temp_values(text, message_chat_id):
     elif text == 'Получить значение на отрезке температуры':
         bot.send_message(message_chat_id, "Введите необходимую температуру в формате \"T_значение_-_значение_\", например: T288.5-292.94")
     
-    elif re.match(r'([T, Т]=\d+[.]\d+)', text):
+    elif re.match(r'([T, Т]=\d+[.]\d+)', text) or re.match(r'([T, Т]=\d+)', text):
         tmp = float(text[2:])
         if tmp > 328 or tmp < 288:
             bot.send_message(message_chat_id, "Неправильно выбрано значение температуры")
@@ -123,7 +123,7 @@ def temp_values(text, message_chat_id):
             bot.send_message(message_chat_id, "Подождите, пока произойдут расчёты")
             bot.send_message(message_chat_id, values.get_value(tmp))
     
-    elif re.match(r'([T, Т]\d+[.]\d+-\d+[.]\d+)', text):
+    elif re.match(r'([T, Т]\d+[.]\d+-\d+[.]\d+)', text) or re.match(r'([T, Т]\d+-\d+)', text):
         value_range = re.split(r'-', text)
         temp_min = float(value_range[0][1:])
         temp_max = float(value_range[1])
