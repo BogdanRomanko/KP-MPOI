@@ -1,9 +1,11 @@
+% Функция добавления нашей библиотеки в менеджер
+% библиотек и регистрации её там на сеанс
 function blkStruct = KP_lib
+    % 'KP' это имя нашей библиотеки
 	Browser.Library = 'KP';
-    % 'KP' is the name of the library
-
+	
+	% 'KP Lib' это имя библиотеки
+    % какое будет отображаться в менеджере библиотек
     Browser.Name = 'KP Lib';
-    % 'KP Lib' is the library name that appears
-    % in the Library Browser
 
     blkStruct.Browser = Browser;

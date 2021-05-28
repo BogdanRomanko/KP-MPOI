@@ -235,7 +235,7 @@ def temp_sensors_preferences(text, message_chat_id):
         "- R = 320 Ом;\n" + 
         "- Gain = 0.835")
 
-# Функция обновления значений сенсоров
+# Функция обновления значений датчиков температуры
 def temp_sensors_refresh(message_chat_id):
     if str(message_chat_id) != '257089707':
         bot.send_message(message_chat_id, "У вас нет прав на обновление данных")
